@@ -29,9 +29,17 @@ class MovieDB {
     }
 
     afficheDerniersFilm(data) {
-        for (let i = 0; i < data.length; i++) {
-            console.log(data[i].title);
-            console.log(data[i].overview);
+        let section = document.querySelector(".liste-films");
+
+        for (let i = 0; i < this.totaleFilm; i++) {
+            //console.log(data[i].title);
+            //console.log(data[i].overview);
+            let article = document.querySelector(".template .film").cloneNode(true);
+            article.querySelector("h2").innerHTML = data[i].title;
+            article.querySelector(".description").innerHTML = data[i].overview || "Aucune description n'est disponible.";
+
+
+            section.appendChild(article);
         }
     }
 }
